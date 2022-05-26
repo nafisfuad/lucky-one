@@ -1,14 +1,12 @@
 import React from 'react';
 import './Cart.css';
 
-const Cart = ({cart, setCart}) => {
+const Cart = ({cart, resetCart}) => {
     const randomSelection = (max) => {
         const random = Math.round(Math.random() * (max - 0) + 0);
         cart.length > 0 ? alert(cart[random]) : alert('Select few products first.');
 
     }
-
-    const clearSelection = () => setCart([]);
 
     return (
         <div>
@@ -19,7 +17,7 @@ const Cart = ({cart, setCart}) => {
             }
             </div>
             <button onClick={() => randomSelection(cart.length - 1)} className='btn border'><span className='text-success'>CHOOSE 1 FOR ME</span></button>
-            <button onClick={clearSelection} className='btn border'><span className='text-primary'>CHOOSE AGAIN</span></button>
+            <button onClick={resetCart} className='btn border'><span className='text-primary'>CHOOSE AGAIN</span></button>
         </div>
     );
 };

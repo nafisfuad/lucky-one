@@ -12,8 +12,6 @@ const Shop = () => {
         .then(data => setProducts(data));
     }, []);
 
-    useEffect(() => console.log(cart), [cart])
-
     const addToCart = (id) => {
         const newCart = [...cart];
         const newProduct = products.find(product => product.id === id);
@@ -23,6 +21,8 @@ const Shop = () => {
         setCart(newCart);
         console.log(cart);
     }
+
+    const resetCart = () => setCart([]);
     return (
         <div className='container row g-4 mx-auto pb-3'>
         <div className='row col col-lg-8 g-4 mx-auto'>
@@ -31,7 +31,7 @@ const Shop = () => {
             }
         </div>
         <div className='col col-lg-4 pt-3'>
-            <Cart cart={cart} setCart={setCart}></Cart>
+            <Cart cart={cart} resetCart={resetCart}></Cart>
         </div>
         </div>
     );
